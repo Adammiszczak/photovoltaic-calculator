@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="en">
+    <head>
+            <meta name="robots" content="noindex">
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Bootstrap CSS -->
+        <link
+            rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+            crossorigin="anonymous">
+
+        <title>Hello, world!</title>
+    </head>
+    <body class="text-center">
+
+        <h1>Hello, world!</h1>
+
+        <form class="m-5">
+            <div class="form-group">
+                <label for="formControlRange">Rachunek za energię elektryczną za 2 miesiące</label>
+                <input
+                    type="range"
+                    class="form-control-range ent-range"
+                    id="formControlRange"
+                    min="50"
+                    max="1000"
+                    step="1"
+                    value="380">
+                <div id="bill-amount"></div>
+            </div>
+            <div class="form-group">
+                <label for="instalPlace">Miejsce montażu instalacji</label>
+                <select id="instalPlace" class="custom-select">
+                    <option value="1">Dom jednorodzinny</option>
+                    <option value="2">Grunt</option>
+                    <option value="3">Garaż niezintegrowany z domem</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="koR">Rodzaj pokrycia dachowego</label>
+                <select id="koR" class="custom-select">
+                    <option value="1">Dach płaski</option>
+                    <option value="2">Dachówka</option>
+                    <option value="3">Blachodachówka</option>
+                    <option value="4">Grunt</option>
+                </select>
+            </div>
+
+        </form>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="card text-white bg-warning mx-3 col-4" style="max-width: 18rem;">
+                    <div class="card-header">Moc na pokrycie zużycia</div>
+                    <div class="card-body">
+                        <h5 class="card-title" id="poNe">xxx</h5>
+                        <p class="card-text">Taka będzie Moc na pokrycie zużycia Twojej instalacji.</p>
+                    </div>
+                </div>
+                <div class="card text-white bg-warning mx-3 col-4" style="max-width: 18rem;">
+                    <div class="card-header">Ilość modułów</div>
+                    <div class="card-body">
+                        <h5 class="card-title" id="moNe">xxx</h5>
+                        <p class="card-text">Wymagana liczba modułów.</p>
+                    </div>
+                </div>
+                <div class="card text-white bg-warning mx-3 col-4" style="max-width: 18rem;">
+                    <div class="card-header">Moc instalacji</div>
+                    <div class="card-body">
+                        <h5 class="card-title" id="producedPower">xxx</h5>
+                        <p class="card-text">Taka będzie moc Twojej instalacji</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center my-5">
+                <div class="card text-white bg-warning mx-3 col-5" style="max-width: 18rem;">
+                    <div class="card-header">Cena za 1kWp instalacji</div>
+                    <div class="card-body">
+                        <h5 class="card-title" id="kPr">xxx</h5>
+                        <p class="card-text">Taka będzie cena za 1kWp Twojej instalacji</p>
+                    </div>
+                </div>
+                <div class="card text-white bg-warning mx-3 col-5" style="max-width: 18rem;">
+                    <div class="card-header">Cena instalacji brutto</div>
+                    <div class="card-body">
+                        <h5 class="card-title" id="pBr">xxx</h5>
+                        <p class="card-text">Taka będzie orientacyjna cena brutto dla Twojej instalacji</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+<script>
+    let biR = document.querySelector("input.ent-range");
+    let biA = document.querySelector("div#bill-amount");
+    let diP = document.querySelector("h5#poNe");
+    let diM = document.querySelector("h5#moNe");
+    let diPP = document.querySelector("h5#producedPower");
+    let kPr = document.querySelector("h5#kPr");
+    let pBr = document.querySelector("h5#pBr");
+    let plI = document.querySelector("select#instalPlace");
+    let plV = "Dom jednorodzinny";
+    let koR = document.querySelector("select#koR");
+    let rfT = "Dach płaski";
+
+
+    plI.onchange = (event) => {
+        var inputOption = event.target.value;
+        plV = event.target.options[event.target.value - 1].text;
+        console.log(inputOption);
+        console.log(plV);
+        testOfVal();
+
+    }
+
+
+
+    koR.onchange = (event) => {
+        var inputOption2 = event.target.value;
+        rfT = event.target.options[event.target.value - 1].text;
+        // console.log(inputOption2);
+        console.log(rfT);
+        testOfVal();
+    }
+
+    let values = {
+        val01: 0.5,
+        val02: 0.8,
+        val03: 1000,
+        val04: 320,
+        val05: 446,
+        val06: 2500
+    }
+
+    let valF = {
+        "3": 3685.55,
+        "3.7": 4057.11,
+        "4.5": 4728.58,
+        "5": 4806.44,
+        "6": 4907.21,
+        "7": 6091.40,
+        "8": 6739.77,
+        "10": 7146.01,
+        "12.5": 8106.89,
+        "15": 8871.06,
+        "17.5": 9468.22,
+        "20": 9892.75
+    }
+
+    let kwh2;
+    let kwh12;
+    let poNe;
+    let moNe;
+    let inPo;  
+    let inst;
+    let nettPrice;
+    let bruttoPrice;
+
+    let valF2 = 4057.11;
+    let rfC = 173;
+
+    function testOfVal() {
+
+        biA.innerHTML = `${biR.value}`;
+
+        kwh2 = `${(biR.value - 24) / 0.5361}`;
+        kwh12 = `${kwh2 * 6}`;
+
+        poNe = `${((kwh12 * values.val01) + (kwh12 * (1 - values.val01) / values.val02)) / values.val03}`
+ 
+        diP.innerHTML = `${(Math.floor(poNe * 1000) / 1000).toFixed(2)} kW`;
+
+        moNe = `${Math.ceil( poNe * 1000 / values.val04)}`;
+        diM.innerHTML = `${moNe} szt.`;
+
+        inPo = `${moNe * values.val04 / 1000}`;
+
+        diPP.innerHTML = `${inPo} kWp`;
+
+        inst = `${inPo * 725}`;
+
+        
+
+        if (inPo < 3.7){
+            valF2 = valF[3];
+        } else if (inPo < 4.5) {
+            valF2 = valF[3.7];
+        } else if (inPo < 5) {
+            valF2 = valF[4.5];
+        } else if (inPo < 6) {
+            valF2 = valF[5];
+        } else if (inPo < 7) {
+            valF2 = valF[6];
+        } else if (inPo < 8) {
+            valF2 = valF[7];
+        } else if (inPo < 10) {
+            valF2 = valF[8];
+        } else if (inPo < 12.5) {
+            valF2 = valF[10];
+        } else if (inPo < 15) {
+            valF2 = valF[12.5];
+        } else if (inPo < 17.5) {
+            valF2 = valF[15];
+        } else if (inPo < 20) {
+            valF2 = valF[17.5];
+        } else if (inPo > 20) {
+            valF2 = valF[20];
+        }
+
+        if (rfT === "Dachówka") {
+            rfC = 117;
+        } else if (rfT === "Blachodachówka") {
+            rfC = 78;
+        } else if (rfT === "Dach płaski") {
+            rfC = 173;
+        } else if (rfT === "Grunt") {
+            rfC = 148;
+        }
+
+        nettPrice = `${(valF2 + (values.val05 * (+moNe)) + (rfC * (+moNe)) + values.val06 + (+inst)) * (1 + 0.17)}`
+        
+        if (plV === "Dom jednorodzinny") {
+            bruttoPrice = `${nettPrice * 1.08}`;
+        } else {
+            bruttoPrice = `${nettPrice * 1.23}`;
+        }
+
+        pBr.innerHTML = `${Math.ceil(bruttoPrice)} zł`;
+        kPr.innerHTML = `${Math.trunc(bruttoPrice / inPo)} zł`
+
+    }
+    testOfVal()
+    biR.addEventListener("input", testOfVal);
+
+
+
+        
+
+
+
+</script>
+</html>
