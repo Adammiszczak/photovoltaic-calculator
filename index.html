@@ -14,16 +14,21 @@
             href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
             integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
             crossorigin="anonymous">
-
-        <title>Hello, world!</title>
+            <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+        <title>Photovoltaic Calculator | Adam Miszczak</title>
+        <style>
+        body {
+            background-color: #ececec;
+        }
+        
+        </style>
     </head>
     <body class="text-center">
-
-        <h1>Hello, world!</h1>
-
-        <form class="m-5">
+    
+        <div class="container my-2">
+        <form class="">
             <div class="form-group">
-                <label for="formControlRange">Rachunek za energię elektryczną za 2 miesiące</label>
+                <label class="ent-Label p-3 badge badge-warning w-100 text-white" for="formControlRange">Rachunek za energię elektryczną za 2 miesiące</label>
                 <input
                     type="range"
                     class="form-control-range ent-range"
@@ -34,16 +39,18 @@
                     value="380">
                 <div id="bill-amount"></div>
             </div>
-            <div class="form-group">
-                <label for="instalPlace">Miejsce montażu instalacji</label>
+            <div class="form-row my-5">
+                    <div class="col-sm-6 my-1">
+                <label class="ent-Label p-3 badge badge-warning w-100 text-white" for="instalPlace">Miejsce montażu instalacji</label>
                 <select id="instalPlace" class="custom-select">
                     <option value="1">Dom jednorodzinny</option>
                     <option value="2">Grunt</option>
                     <option value="3">Garaż niezintegrowany z domem</option>
                 </select>
-            </div>
-            <div class="form-group">
-                <label for="koR">Rodzaj pokrycia dachowego</label>
+                </div>
+            
+                <div class="col-sm-6 my-1">
+                <label class="ent-Label p-3 badge badge-warning w-100 text-white" for="koR">Rodzaj pokrycia dachowego</label>
                 <select id="koR" class="custom-select">
                     <option value="1">Dach płaski</option>
                     <option value="2">Dachówka</option>
@@ -51,41 +58,42 @@
                     <option value="4">Grunt</option>
                 </select>
             </div>
-
+        </div>
         </form>
+        
         <div class="container">
             <div class="row justify-content-center">
-                <div class="card text-white bg-warning mx-3 col-4" style="max-width: 18rem;">
+                <div class="card text-white bg-warning mx-3 col-sm-6 my-3" style="max-width: 18rem;">
                     <div class="card-header">Moc na pokrycie zużycia</div>
                     <div class="card-body">
                         <h5 class="card-title" id="poNe">xxx</h5>
                         <p class="card-text">Taka będzie Moc na pokrycie zużycia Twojej instalacji.</p>
                     </div>
                 </div>
-                <div class="card text-white bg-warning mx-3 col-4" style="max-width: 18rem;">
+                <div class="card text-white bg-warning mx-3 col-sm-6 my-3" style="max-width: 18rem;">
                     <div class="card-header">Ilość modułów</div>
                     <div class="card-body">
                         <h5 class="card-title" id="moNe">xxx</h5>
                         <p class="card-text">Wymagana liczba modułów.</p>
                     </div>
                 </div>
-                <div class="card text-white bg-warning mx-3 col-4" style="max-width: 18rem;">
+                <div class="card text-white bg-warning mx-3 col-sm-6 my-3" style="max-width: 18rem;">
                     <div class="card-header">Moc instalacji</div>
                     <div class="card-body">
-                        <h5 class="card-title" id="producedPower">xxx</h5>
+                        <h5 class="card-title" id="prPo">xxx</h5>
                         <p class="card-text">Taka będzie moc Twojej instalacji</p>
                     </div>
                 </div>
             </div>
             <div class="row justify-content-center my-5">
-                <div class="card text-white bg-warning mx-3 col-5" style="max-width: 18rem;">
+                <div class="card text-white bg-warning mx-3 col-sm-6 my-3" style="max-width: 18rem;">
                     <div class="card-header">Cena za 1kWp instalacji</div>
                     <div class="card-body">
                         <h5 class="card-title" id="kPr">xxx</h5>
                         <p class="card-text">Taka będzie cena za 1kWp Twojej instalacji</p>
                     </div>
                 </div>
-                <div class="card text-white bg-warning mx-3 col-5" style="max-width: 18rem;">
+                <div class="card text-white bg-warning mx-3 col-sm-6 my-3" style="max-width: 18rem;">
                     <div class="card-header">Cena instalacji brutto</div>
                     <div class="card-body">
                         <h5 class="card-title" id="pBr">xxx</h5>
@@ -102,7 +110,7 @@
     let biA = document.querySelector("div#bill-amount");
     let diP = document.querySelector("h5#poNe");
     let diM = document.querySelector("h5#moNe");
-    let diPP = document.querySelector("h5#producedPower");
+    let diPP = document.querySelector("h5#prPo");
     let kPr = document.querySelector("h5#kPr");
     let pBr = document.querySelector("h5#pBr");
     let plI = document.querySelector("select#instalPlace");
@@ -168,7 +176,7 @@
 
     function testOfVal() {
 
-        biA.innerHTML = `${biR.value}`;
+        biA.innerHTML = `${biR.value} zł`;
 
         kwh2 = `${(biR.value - 24) / 0.5361}`;
         kwh12 = `${kwh2 * 6}`;
