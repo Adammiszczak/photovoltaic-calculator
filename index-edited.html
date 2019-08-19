@@ -1,99 +1,147 @@
 <!doctype html>
 <html lang="en">
-    <head>
-            <meta name="robots" content="noindex">
-        <!-- Required meta tags -->
-        <meta charset="utf-8">
-        <meta
-            name="viewport"
-            content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-        <title>Photovoltaic Calculator | Adam Miszczak</title>
-        <style>
+<head>
+    <meta name="robots" content="noindex">
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Photovoltaic Calculator | Adam Miszczak</title>
+    <style>
         body {
             background-color: #ececec;
+            margin: 0px auto;
+            width: 80%;
         }
-        
-        </style>
-    </head>
-    <body>
-    
-        <div>
+
+        div.ent-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-gap: 30px;
+        }
+
+
+        div.ent-first-form {
+            text-align: center;
+        }
+
+        div.ent-first-form input[type='range'] {
+            display: block;
+            width: 100%;
+        }
+
+        div.ent-first-form select {
+            display: block;
+            margin: 0 auto;
+            padding: 10px;
+            border-radius: 10px;
+            background: #e97a1721;
+        }
+
+        div.ent-first-form label {
+            background-color: #FFC107;
+            padding: 20px;
+            width: 100%;
+            display: block;
+            color: #1A1A1A;
+            font-weight: 600;
+            margin: 15px 0;
+            border-radius: 20px;
+            font-size:1.3rem;
+        }
+
+        div.ent-card {
+            border: 1px solid black;
+            margin: 10px;
+            text-align: center;
+            border-radius: 20px;
+            overflow: hidden;
+            background: #ffc1076e;
+        }
+
+        div.end-card-cost {
+            width: 100%;
+        }
+
+        div.ent-card h3{
+            background: #FFC107;
+    margin: 0;
+    padding: 10px;
+        }
+
+        div.ent-value-field {
+            margin:10px 0;
+            font-weight: 600;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="ent-first-form">
         <form class="">
             <div class="">
                 <label class="ent-Label" for="formControlRange">Rachunek za energię elektryczną za 2 miesiące</label>
-                <input
-                    type="range"
-                    class="form-control-range ent-range"
-                    id="formControlRange"
-                    min="50"
-                    max="1000"
-                    step="1"
-                    value="380">
-                <div id="bill-amount"></div>
+                <div></div><input type="range" class="form-control-range ent-range" id="formControlRange" min="50"
+                    max="1000" step="1" value="380">
             </div>
+            <div id="bill-amount"></div>
+
             <div class="">
-                    <div class="">
-                <label class="ent-Label" for="instalPlace">Miejsce montażu instalacji</label>
-                <select id="instalPlace" class="">
-                    <option value="1">Dom jednorodzinny</option>
-                    <option value="2">Grunt</option>
-                    <option value="3">Garaż niezintegrowany z domem</option>
-                </select>
-                </div>
-            
                 <div class="">
-                <label class="ent-Label" for="koR">Rodzaj pokrycia dachowego</label>
-                <select id="koR" class="">
-                    <option value="1">Dach płaski</option>
-                    <option value="2">Dachówka</option>
-                    <option value="3">Blachodachówka</option>
-                    <option value="4">Grunt</option>
-                </select>
+                    <label class="ent-Label" for="instalPlace">Miejsce montażu instalacji</label>
+                    <select id="instalPlace" class="">
+                        <option value="1">Dom jednorodzinny</option>
+                        <option value="2">Grunt</option>
+                        <option value="3">Garaż niezintegrowany z domem</option>
+                    </select>
+                </div>
+
+                <div class="">
+                    <label class="ent-Label" for="koR">Rodzaj pokrycia dachowego</label>
+                    <select id="koR" class="">
+                        <option value="1">Dach płaski</option>
+                        <option value="2">Dachówka</option>
+                        <option value="3">Blachodachówka</option>
+                        <option value="4">Grunt</option>
+                    </select>
+                </div>
+            </div>
+
+        </form>
+    </div>
+    <div class="ent-grid">
+
+        <div class="ent-card">
+            <h3 class="">Moc na pokrycie zużycia</h3>
+            <div class="">
+                <div class="ent-value-field" id="poNe">xxx</div>
+                <p class="">Taka będzie Moc na pokrycie zużycia Twojej instalacji</p>
             </div>
         </div>
-        </form>
-        
+        <div class="ent-card">
+            <h3 class="">Ilość modułów</h3>
+            <div class="">
+                <div class="ent-value-field" id="moNe">xxx</div>
+                <p class="">Wymagana liczba modułów</p>
+            </div>
+        </div>
+        <div class="ent-card">
+            <h3 class="">Moc instalacji</h3>
+            <div class="">
+                <div class="ent-value-field" id="prPo">xxx</div>
+                <p class="">Taka będzie moc Twojej instalacji</p>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="ent-card end-card-cost">
+        <h3 class="">Cena instalacji brutto</h3>
         <div class="">
-            <div class="">
-                <div class="" style="">
-                    <div class="">Moc na pokrycie zużycia</div>
-                    <div class="">
-                        <h5 class="" id="poNe">xxx</h5>
-                        <p class="">Taka będzie Moc na pokrycie zużycia Twojej instalacji.</p>
-                    </div>
-                </div>
-                <div class="" style="">
-                    <div class="">Ilość modułów</div>
-                    <div class="">
-                        <h5 class="" id="moNe">xxx</h5>
-                        <p class="">Wymagana liczba modułów.</p>
-                    </div>
-                </div>
-                <div class="" style="">
-                    <div class="">Moc instalacji</div>
-                    <div class="">
-                        <h5 class="" id="prPo">xxx</h5>
-                        <p class="">Taka będzie moc Twojej instalacji</p>
-                    </div>
-                </div>
-            </div>
-            <div class="">
-                <div class="" style="">
-                    <div class="">Cena za 1kWp instalacji</div>
-                    <div class="">
-                        <h5 class="" id="kPr">xxx</h5>
-                        <p class="">Taka będzie cena za 1kWp Twojej instalacji</p>
-                    </div>
-                </div>
-                <div class="" style="">
-                    <div class="">Cena instalacji brutto</div>
-                    <div class="">
-                        <h5 class="" id="pBr">xxx</h5>
-                        <p class="">Taka będzie orientacyjna cena brutto dla Twojej instalacji</p>
-                    </div>
-                </div>
-            </div>
+            <div class="ent-value-field" id="pBr">xxx</div>
+            <p class="">Taka będzie orientacyjna cena brutto dla Twojej instalacji</p>
         </div>
     </div>
 
@@ -101,11 +149,11 @@
 <script>
     let biR = document.querySelector("input.ent-range");
     let biA = document.querySelector("div#bill-amount");
-    let diP = document.querySelector("h5#poNe");
-    let diM = document.querySelector("h5#moNe");
-    let diPP = document.querySelector("h5#prPo");
-    let kPr = document.querySelector("h5#kPr");
-    let pBr = document.querySelector("h5#pBr");
+    let diP = document.querySelector("div#poNe");
+    let diM = document.querySelector("div#moNe");
+    let diPP = document.querySelector("div#prPo");
+    let kPr = document.querySelector("div#kPr");
+    let pBr = document.querySelector("div#pBr");
     let plI = document.querySelector("select#instalPlace");
     let plV = "Dom jednorodzinny";
     let koR = document.querySelector("select#koR");
@@ -159,7 +207,7 @@
     let kwh12;
     let poNe;
     let moNe;
-    let inPo;  
+    let inPo;
     let inst;
     let nettPrice;
     let bruttoPrice;
@@ -175,7 +223,7 @@
         kwh12 = `${kwh2 * 6}`;
 
         poNe = `${((kwh12 * values.val01) + (kwh12 * (1 - values.val01) / values.val02)) / values.val03}`
- 
+
         diP.innerHTML = `${(Math.floor(poNe * 1000) / 1000).toFixed(2)} kW`;
 
         moNe = `${Math.ceil( poNe * 1000 / values.val04)}`;
@@ -187,9 +235,9 @@
 
         inst = `${inPo * 725}`;
 
-        
 
-        if (inPo < 3.7){
+
+        if (inPo < 3.7) {
             valF2 = valF[3];
         } else if (inPo < 4.5) {
             valF2 = valF[3.7];
@@ -226,7 +274,7 @@
         }
 
         nettPrice = `${(valF2 + (values.val05 * (+moNe)) + (rfC * (+moNe)) + values.val06 + (+inst)) * (1 + 0.17)}`
-        
+
         if (plV === "Dom jednorodzinny") {
             bruttoPrice = `${nettPrice * 1.08}`;
         } else {
@@ -234,17 +282,11 @@
         }
 
         pBr.innerHTML = `${Math.ceil(bruttoPrice)} zł`;
-        kPr.innerHTML = `${Math.trunc(bruttoPrice / inPo)} zł`
+        // kPr.innerHTML = `${Math.trunc(bruttoPrice / inPo)} zł`
 
     }
     testOfVal()
     biR.addEventListener("input", testOfVal);
-
-
-
-        
-
-
-
 </script>
+
 </html>
