@@ -8,13 +8,6 @@
             name="viewport"
             content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-        <!-- Bootstrap CSS -->
-        <link
-            rel="stylesheet"
-            href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-            crossorigin="anonymous">
-            <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
         <title>Photovoltaic Calculator | Adam Miszczak</title>
         <style>
         body {
@@ -23,12 +16,12 @@
         
         </style>
     </head>
-    <body class="text-center">
+    <body>
     
-        <div class="container my-2">
+        <div>
         <form class="">
-            <div class="form-group">
-                <label class="ent-Label p-3 badge badge-warning w-100 text-white" for="formControlRange">Rachunek za energię elektryczną za 2 miesiące</label>
+            <div class="">
+                <label class="ent-Label" for="formControlRange">Rachunek za energię elektryczną za 2 miesiące</label>
                 <input
                     type="range"
                     class="form-control-range ent-range"
@@ -39,19 +32,19 @@
                     value="380">
                 <div id="bill-amount"></div>
             </div>
-            <div class="form-row my-5">
-                    <div class="col-sm-6 my-1">
-                <label class="ent-Label p-3 badge badge-warning w-100 text-white" for="instalPlace">Miejsce montażu instalacji</label>
-                <select id="instalPlace" class="custom-select">
+            <div class="">
+                    <div class="">
+                <label class="ent-Label" for="instalPlace">Miejsce montażu instalacji</label>
+                <select id="instalPlace" class="">
                     <option value="1">Dom jednorodzinny</option>
                     <option value="2">Grunt</option>
                     <option value="3">Garaż niezintegrowany z domem</option>
                 </select>
                 </div>
             
-                <div class="col-sm-6 my-1">
-                <label class="ent-Label p-3 badge badge-warning w-100 text-white" for="koR">Rodzaj pokrycia dachowego</label>
-                <select id="koR" class="custom-select">
+                <div class="">
+                <label class="ent-Label" for="koR">Rodzaj pokrycia dachowego</label>
+                <select id="koR" class="">
                     <option value="1">Dach płaski</option>
                     <option value="2">Dachówka</option>
                     <option value="3">Blachodachówka</option>
@@ -61,43 +54,43 @@
         </div>
         </form>
         
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="card text-white bg-warning mx-3 col-sm-6 my-3" style="max-width: 18rem;">
-                    <div class="card-header">Moc na pokrycie zużycia</div>
-                    <div class="card-body">
-                        <h5 class="card-title" id="poNe">xxx</h5>
-                        <p class="card-text">Taka będzie Moc na pokrycie zużycia Twojej instalacji.</p>
+        <div class="">
+            <div class="">
+                <div class="" style="">
+                    <div class="">Moc na pokrycie zużycia</div>
+                    <div class="">
+                        <h5 class="" id="poNe">xxx</h5>
+                        <p class="">Taka będzie Moc na pokrycie zużycia Twojej instalacji.</p>
                     </div>
                 </div>
-                <div class="card text-white bg-warning mx-3 col-sm-6 my-3" style="max-width: 18rem;">
-                    <div class="card-header">Ilość modułów</div>
-                    <div class="card-body">
-                        <h5 class="card-title" id="moNe">xxx</h5>
-                        <p class="card-text">Wymagana liczba modułów.</p>
+                <div class="" style="">
+                    <div class="">Ilość modułów</div>
+                    <div class="">
+                        <h5 class="" id="moNe">xxx</h5>
+                        <p class="">Wymagana liczba modułów.</p>
                     </div>
                 </div>
-                <div class="card text-white bg-warning mx-3 col-sm-6 my-3" style="max-width: 18rem;">
-                    <div class="card-header">Moc instalacji</div>
-                    <div class="card-body">
-                        <h5 class="card-title" id="prPo">xxx</h5>
-                        <p class="card-text">Taka będzie moc Twojej instalacji</p>
+                <div class="" style="">
+                    <div class="">Moc instalacji</div>
+                    <div class="">
+                        <h5 class="" id="prPo">xxx</h5>
+                        <p class="">Taka będzie moc Twojej instalacji</p>
                     </div>
                 </div>
             </div>
-            <div class="row justify-content-center my-5">
-                <div class="card text-white bg-warning mx-3 col-sm-6 my-3" style="max-width: 18rem;">
-                    <div class="card-header">Cena za 1kWp instalacji</div>
-                    <div class="card-body">
-                        <h5 class="card-title" id="kPr">xxx</h5>
-                        <p class="card-text">Taka będzie cena za 1kWp Twojej instalacji</p>
+            <div class="">
+                <div class="" style="">
+                    <div class="">Cena za 1kWp instalacji</div>
+                    <div class="">
+                        <h5 class="" id="kPr">xxx</h5>
+                        <p class="">Taka będzie cena za 1kWp Twojej instalacji</p>
                     </div>
                 </div>
-                <div class="card text-white bg-warning mx-3 col-sm-6 my-3" style="max-width: 18rem;">
-                    <div class="card-header">Cena instalacji brutto</div>
-                    <div class="card-body">
-                        <h5 class="card-title" id="pBr">xxx</h5>
-                        <p class="card-text">Taka będzie orientacyjna cena brutto dla Twojej instalacji</p>
+                <div class="" style="">
+                    <div class="">Cena instalacji brutto</div>
+                    <div class="">
+                        <h5 class="" id="pBr">xxx</h5>
+                        <p class="">Taka będzie orientacyjna cena brutto dla Twojej instalacji</p>
                     </div>
                 </div>
             </div>
