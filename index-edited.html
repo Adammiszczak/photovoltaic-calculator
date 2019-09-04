@@ -1,292 +1,306 @@
 <!doctype html>
 <html lang="en">
 
-<head>
-    <meta name="robots" content="noindex">
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <head>
+        <meta name="robots" content="noindex">
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <title>Photovoltaic Calculator | Adam Miszczak</title>
-    <style>
-        body {
-            background-color: #ececec;
-            margin: 0px auto;
-            width: 80%;
-        }
+        <title>Photovoltaic Calculator | Adam Miszczak</title>
+        <style>
+            body {
+                background-color: #ececec;
+                margin: 0 auto;
+                width: 80%;
+            }
 
-        div.ent-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            grid-gap: 30px;
-        }
+            div.ent-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
+                grid-gap: 1rem;
+            }
 
+            div.ent-first-form {
+                text-align: center;
+            }
 
-        div.ent-first-form {
-            text-align: center;
-        }
+            div.ent-first-form input[type='range'] {
+                display: block;
+                width: 100%;
+            }
 
-        div.ent-first-form input[type='range'] {
-            display: block;
-            width: 100%;
-        }
+            div.ent-first-form select {
+                display: block;
+                margin: 0 auto;
+                padding: 10px;
+                border-radius: 10px;
+                background: #e97a1721;
+            }
 
-        div.ent-first-form select {
-            display: block;
-            margin: 0 auto;
-            padding: 10px;
-            border-radius: 10px;
-            background: #e97a1721;
-        }
+            div.ent-first-form label {
+                background-color: #FFC107;
+                padding: 20px;
+                width: 100%;
+                display: block;
+                color: #1A1A1A;
+                font-weight: 600;
+                margin: 15px 0;
+                border-radius: 20px;
+                font-size: 1.3rem;
+            }
 
-        div.ent-first-form label {
-            background-color: #FFC107;
-            padding: 20px;
-            width: 100%;
-            display: block;
-            color: #1A1A1A;
-            font-weight: 600;
-            margin: 15px 0;
-            border-radius: 20px;
-            font-size:1.3rem;
-        }
+            div.ent-card {
+                border: 1px solid black;
+                margin: 10px;
+                text-align: center;
+                border-radius: 20px;
+                overflow: hidden;
+                background: #ffc1076e;
+            }
 
-        div.ent-card {
-            border: 1px solid black;
-            margin: 10px;
-            text-align: center;
-            border-radius: 20px;
-            overflow: hidden;
-            background: #ffc1076e;
-        }
+            div.end-card-cost {
+                width: 100%;
+            }
 
-        div.end-card-cost {
-            width: 100%;
-        }
+            div.ent-card h3 {
+                background: #FFC107;
+                margin: 0;
+                padding: 10px;
+            }
 
-        div.ent-card h3{
-            background: #FFC107;
-    margin: 0;
-    padding: 10px;
-        }
+            div.ent-value-field {
+                margin: 10px 0;
+                font-weight: 600;
+            }
 
-        div.ent-value-field {
-            margin:10px 0;
-            font-weight: 600;
-        }
-    </style>
-</head>
+        </style>
+    </head>
 
-<body>
+    <body>
 
-    <div class="ent-first-form">
-        <form class="">
-            <div class="">
-                <label class="ent-Label" for="formControlRange">Rachunek za energię elektryczną za 2 miesiące</label>
-                <div></div><input type="range" class="form-control-range ent-range" id="formControlRange" min="50"
-                    max="1000" step="1" value="380">
-            </div>
-            <div id="bill-amount"></div>
+        <div class="row">
 
-            <div class="">
-                <div class="">
-                    <label class="ent-Label" for="instalPlace">Miejsce montażu instalacji</label>
-                    <select id="instalPlace" class="">
-                        <option value="1">Dom jednorodzinny</option>
-                        <option value="2">Grunt</option>
-                        <option value="3">Garaż niezintegrowany z domem</option>
-                    </select>
+            <div class="col-xs-12  col-sm-12  page-content rtd">
+
+                <div class="ent-first-form">
+                    <form class="">
+                        <div class="">
+                            <p>
+                                <label class="ent-Label" for="formControlRange">Rachunek za energię elektryczną za 2 miesiące</label>
+                            </p>
+                            <div></div>
+                            <p><input
+                                id="formControlRange"
+                                class="form-control-range ent-range"
+                                max="1000"
+                                min="50"
+                                step="1"
+                                type="range"
+                                value="380"></p>
+                        </div>
+                        <div id="bill-amount">603 zł</div>
+                        <div class="">
+                            <div class="">
+                                <label class="ent-Label" for="instalPlace">Miejsce montażu instalacji</label>
+                                <select id="instalPlace" class="">
+                                    <option value="1">Dom jednorodzinny</option>
+                                    <option value="2">Grunt</option>
+                                    <option value="3">Garaż niezintegrowany z domem</option>
+                                </select>
+                            </div>
+                            <div class="">
+                                <label class="ent-Label" for="koR">Rodzaj pokrycia dachowego</label>
+                                <select id="koR" class="">
+                                    <option value="1">Dach płaski</option>
+                                    <option value="2">Dachówka</option>
+                                    <option value="3">Blachodachówka</option>
+                                    <option value="4">Grunt</option>
+                                </select>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="ent-grid">
+                    <div class="ent-card">
+                        <h3 class="">Moc na pokrycie zużycia</h3>
+                        <div class="">
+                            <div id="poNe" class="ent-value-field">7.29 kW</div>
+                            <p class="">Taką moc potrzeba na pokrycie zużycia energii elektrycznej w Twoim domu</p>
+                        </div>
+                    </div>
+                    <div class="ent-card">
+                        <h3 class="">Ilość modułów</h3>
+                        <div class="">
+                            <div id="moNe" class="ent-value-field">23 szt.</div>
+                            <p class="">Wymagana liczba modułów</p>
+                        </div>
+                    </div>
+                    <div class="ent-card">
+                        <h3 class="">Moc instalacji</h3>
+                        <div class="">
+                            <div id="prPo" class="ent-value-field">7.36 kWp</div>
+                            <p class="">Taka będzie moc Twojej instalacji</p>
+                        </div>
+                    </div>
+                    <div class="ent-card end-card-cost">
+                        <h3 class="">Cena instalacji brutto</h3>
+                        <div class="">
+                            <div id="pBr" class="ent-value-field">40532 zł</div>
+                            <p class="">Taka będzie orientacyjna cena brutto dla Twojej instalacji</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="custom-text-ent" style="text-align: center; margin: 10px auto;">
+                    <p>
+                        <em>*Powyższe dane mają charakter orientacyjny i nie stanowią oferty w
+                            rozumieniu Kodeksu Cywilnego.</em>
+                    </p>
                 </div>
 
-                <div class="">
-                    <label class="ent-Label" for="koR">Rodzaj pokrycia dachowego</label>
-                    <select id="koR" class="">
-                        <option value="1">Dach płaski</option>
-                        <option value="2">Dachówka</option>
-                        <option value="3">Blachodachówka</option>
-                        <option value="4">Grunt</option>
-                    </select>
-                </div>
-            </div>
-
-        </form>
-    </div>
-    <div class="ent-grid">
-
-        <div class="ent-card">
-            <h3 class="">Moc na pokrycie zużycia</h3>
-            <div class="">
-                <div class="ent-value-field" id="poNe">xxx</div>
-                <p class="">Taka będzie Moc na pokrycie zużycia Twojej instalacji</p>
-            </div>
+ 
         </div>
-        <div class="ent-card">
-            <h3 class="">Ilość modułów</h3>
-            <div class="">
-                <div class="ent-value-field" id="moNe">xxx</div>
-                <p class="">Wymagana liczba modułów</p>
-            </div>
-        </div>
-        <div class="ent-card">
-            <h3 class="">Moc instalacji</h3>
-            <div class="">
-                <div class="ent-value-field" id="prPo">xxx</div>
-                <p class="">Taka będzie moc Twojej instalacji</p>
-            </div>
         </div>
 
-    </div>
+    </body>
+    <script>
+        let biR = document.querySelector("input.ent-range");
+        let biA = document.querySelector("div#bill-amount");
+        let diP = document.querySelector("div#poNe");
+        let diM = document.querySelector("div#moNe");
+        let diPP = document.querySelector("div#prPo");
+        let kPr = document.querySelector("div#kPr");
+        let pBr = document.querySelector("div#pBr");
+        let plI = document.querySelector("select#instalPlace");
+        let plV = "Dom jednorodzinny";
+        let koR = document.querySelector("select#koR");
+        let rfT = "Dach płaski";
 
-    <div class="ent-card end-card-cost">
-        <h3 class="">Cena instalacji brutto</h3>
-        <div class="">
-            <div class="ent-value-field" id="pBr">xxx</div>
-            <p class="">Taka będzie orientacyjna cena brutto dla Twojej instalacji</p>
-        </div>
-    </div>
+        plI.onchange = (event) => {
+            var inputOption = event.target.value;
+            plV = event.target.options[event.target.value - 1].text;
+            console.log(inputOption);
+            console.log(plV);
+            testOfVal();
 
-</body>
-<script>
-    let biR = document.querySelector("input.ent-range");
-    let biA = document.querySelector("div#bill-amount");
-    let diP = document.querySelector("div#poNe");
-    let diM = document.querySelector("div#moNe");
-    let diPP = document.querySelector("div#prPo");
-    let kPr = document.querySelector("div#kPr");
-    let pBr = document.querySelector("div#pBr");
-    let plI = document.querySelector("select#instalPlace");
-    let plV = "Dom jednorodzinny";
-    let koR = document.querySelector("select#koR");
-    let rfT = "Dach płaski";
-
-
-    plI.onchange = (event) => {
-        var inputOption = event.target.value;
-        plV = event.target.options[event.target.value - 1].text;
-        console.log(inputOption);
-        console.log(plV);
-        testOfVal();
-
-    }
-
-
-
-    koR.onchange = (event) => {
-        var inputOption2 = event.target.value;
-        rfT = event.target.options[event.target.value - 1].text;
-        // console.log(inputOption2);
-        console.log(rfT);
-        testOfVal();
-    }
-
-    let values = {
-        val01: 0.5,
-        val02: 0.8,
-        val03: 1000,
-        val04: 320,
-        val05: 446,
-        val06: 2500
-    }
-
-    let valF = {
-        "3": 3685.55,
-        "3.7": 4057.11,
-        "4.5": 4728.58,
-        "5": 4806.44,
-        "6": 4907.21,
-        "7": 6091.40,
-        "8": 6739.77,
-        "10": 7146.01,
-        "12.5": 8106.89,
-        "15": 8871.06,
-        "17.5": 9468.22,
-        "20": 9892.75
-    }
-
-    let kwh2;
-    let kwh12;
-    let poNe;
-    let moNe;
-    let inPo;
-    let inst;
-    let nettPrice;
-    let bruttoPrice;
-
-    let valF2 = 4057.11;
-    let rfC = 173;
-
-    function testOfVal() {
-
-        biA.innerHTML = `${biR.value} zł`;
-
-        kwh2 = `${(biR.value - 24) / 0.5361}`;
-        kwh12 = `${kwh2 * 6}`;
-
-        poNe = `${((kwh12 * values.val01) + (kwh12 * (1 - values.val01) / values.val02)) / values.val03}`
-
-        diP.innerHTML = `${(Math.floor(poNe * 1000) / 1000).toFixed(2)} kW`;
-
-        moNe = `${Math.ceil( poNe * 1000 / values.val04)}`;
-        diM.innerHTML = `${moNe} szt.`;
-
-        inPo = `${moNe * values.val04 / 1000}`;
-
-        diPP.innerHTML = `${inPo} kWp`;
-
-        inst = `${inPo * 725}`;
-
-
-
-        if (inPo < 3.7) {
-            valF2 = valF[3];
-        } else if (inPo < 4.5) {
-            valF2 = valF[3.7];
-        } else if (inPo < 5) {
-            valF2 = valF[4.5];
-        } else if (inPo < 6) {
-            valF2 = valF[5];
-        } else if (inPo < 7) {
-            valF2 = valF[6];
-        } else if (inPo < 8) {
-            valF2 = valF[7];
-        } else if (inPo < 10) {
-            valF2 = valF[8];
-        } else if (inPo < 12.5) {
-            valF2 = valF[10];
-        } else if (inPo < 15) {
-            valF2 = valF[12.5];
-        } else if (inPo < 17.5) {
-            valF2 = valF[15];
-        } else if (inPo < 20) {
-            valF2 = valF[17.5];
-        } else if (inPo > 20) {
-            valF2 = valF[20];
         }
 
-        if (rfT === "Dachówka") {
-            rfC = 117;
-        } else if (rfT === "Blachodachówka") {
-            rfC = 78;
-        } else if (rfT === "Dach płaski") {
-            rfC = 173;
-        } else if (rfT === "Grunt") {
-            rfC = 148;
+        koR.onchange = (event) => {
+            var inputOption2 = event.target.value;
+            rfT = event.target.options[event.target.value - 1].text;
+            // console.log(inputOption2);
+            console.log(rfT);
+            testOfVal();
         }
 
-        nettPrice = `${(valF2 + (values.val05 * (+moNe)) + (rfC * (+moNe)) + values.val06 + (+inst)) * (1 + 0.17)}`
-
-        if (plV === "Dom jednorodzinny") {
-            bruttoPrice = `${nettPrice * 1.08}`;
-        } else {
-            bruttoPrice = `${nettPrice * 1.23}`;
+        let values = {
+            val01: 0.5,
+            val02: 0.8,
+            val03: 1000,
+            val04: 320,
+            val05: 446,
+            val06: 2500
         }
 
-        pBr.innerHTML = `${Math.ceil(bruttoPrice)} zł`;
-        // kPr.innerHTML = `${Math.trunc(bruttoPrice / inPo)} zł`
+        let valF = {
+            "3": 3685.55,
+            "3.7": 4057.11,
+            "4.5": 4728.58,
+            "5": 4806.44,
+            "6": 4907.21,
+            "7": 6091.40,
+            "8": 6739.77,
+            "10": 7146.01,
+            "12.5": 8106.89,
+            "15": 8871.06,
+            "17.5": 9468.22,
+            "20": 9892.75
+        }
 
-    }
-    testOfVal()
-    biR.addEventListener("input", testOfVal);
-</script>
+        let kwh2;
+        let kwh12;
+        let poNe;
+        let moNe;
+        let inPo;
+        let inst;
+        let nettPrice;
+        let bruttoPrice;
+
+        let valF2 = 4057.11;
+        let rfC = 173;
+
+        function testOfVal() {
+
+            biA.innerHTML = `${biR.value} zł`;
+
+            kwh2 = `${ (biR.value - 24) / 0.5361}`;
+            kwh12 = `${kwh2 * 6}`;
+
+            poNe = `${ ((kwh12 * values.val01) + (kwh12 * (1 - values.val01) / values.val02)) / values.val03}`
+
+            diP.innerHTML = `${ (Math.floor(poNe * 1000) / 1000).toFixed(2)} kW`;
+
+            moNe = `${Math.ceil(poNe * 1000 / values.val04)}`;
+            diM.innerHTML = `${moNe} szt.`;
+
+            inPo = `${moNe * values.val04 / 1000}`;
+
+            diPP.innerHTML = `${inPo} kWp`;
+
+            inst = `${inPo * 725}`;
+
+            if (inPo < 3.7) {
+                valF2 = valF[3];
+            } else if (inPo < 4.5) {
+                valF2 = valF[3.7];
+            } else if (inPo < 5) {
+                valF2 = valF[4.5];
+            } else if (inPo < 6) {
+                valF2 = valF[5];
+            } else if (inPo < 7) {
+                valF2 = valF[6];
+            } else if (inPo < 8) {
+                valF2 = valF[7];
+            } else if (inPo < 10) {
+                valF2 = valF[8];
+            } else if (inPo < 12.5) {
+                valF2 = valF[10];
+            } else if (inPo < 15) {
+                valF2 = valF[12.5];
+            } else if (inPo < 17.5) {
+                valF2 = valF[15];
+            } else if (inPo < 20) {
+                valF2 = valF[17.5];
+            } else if (inPo > 20) {
+                valF2 = valF[20];
+            }
+
+            if (rfT === "Dachówka") {
+                rfC = 117;
+            } else if (rfT === "Blachodachówka") {
+                rfC = 78;
+            } else if (rfT === "Dach płaski") {
+                rfC = 173;
+            } else if (rfT === "Grunt") {
+                rfC = 148;
+            }
+
+            nettPrice = `${ (valF2 + (values.val05 * (+ moNe)) + (rfC * (+ moNe)) + values.val06 + (+ inst)) * (1 + 0.17)}`
+
+            if (plV === "Dom jednorodzinny") {
+                bruttoPrice = `${nettPrice * 1.08}`;
+            } else {
+                bruttoPrice = `${nettPrice * 1.23}`;
+            }
+
+            pBr.innerHTML = `${Math.ceil(bruttoPrice)} zł`;
+            // kPr.innerHTML = `${Math.trunc(bruttoPrice / inPo)} zł`
+
+        }
+        testOfVal()
+        biR.addEventListener("input", testOfVal);
+    </script>
 
 </html>
