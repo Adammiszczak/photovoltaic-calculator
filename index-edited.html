@@ -181,8 +181,6 @@ let rfT = "Dach płaski";
 plI.onchange = (event) => {
     var inputOption = event.target.value;
     plV = event.target.options[event.target.value - 1].text;
-    console.log(inputOption);
-    console.log(plV);
     testOfVal();
 
 }
@@ -190,8 +188,6 @@ plI.onchange = (event) => {
 koR.onchange = (event) => {
     var inputOption2 = event.target.value;
     rfT = event.target.options[event.target.value - 1].text;
-    console.log(inputOption2);
-    console.log(rfT);
     testOfVal();
 }
 
